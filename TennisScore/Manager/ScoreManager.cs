@@ -11,8 +11,8 @@ public class ScoreManager
 
     public ScoreManager()
     {
-        Player1.Score = 0;
-        Player2.Score = 0;
+        Player1 = new PlayerModel();
+        Player2 = new PlayerModel();
     }
 
     public void Player1Scored()
@@ -43,10 +43,24 @@ public class ScoreManager
             }
             else if (Player1.Score > Player2.Score + 1)
             {
+                Player1.WonGames++;
+                if (Player1.WonGames == 6 && Player2.WonGames.Equals(Player1.WonGames-3))
+                {
+                    Player1.WonGames = 0;
+                    Player2.WonGames = 0;
+                    Player1.Set++;
+                }
                 return "Game Player1";
             }
             else if (Player2.Score > Player1.Score + 1)
             {
+                Player2.WonGames++;
+                if (Player2.WonGames == 6 && Player1.WonGames.Equals(Player2.WonGames-3))
+                {
+                    Player1.WonGames = 0;
+                    Player2.WonGames = 0;
+                    Player2.Set++;
+                }
                 return "Game Player2";
             }
         }
@@ -67,18 +81,5 @@ public class ScoreManager
         }
 
         return score.ToString();
-
-        //switch (score)
-        //{
-        //    case 0:
-        //        return "Love";
-        //    case 1:
-        //        return "Fifteen";
-        //    case 2:
-        //        return "Thirty";
-        //    case 3:
-        //        return "Forty";
-        //    default:
-        //        return score.ToString();
     }
 }
