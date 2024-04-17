@@ -7,6 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Grid.Row="2" Grid.Column="0" Content="Player 1 Score"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="Player 2 Score"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Name="Player1Score" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Name="Player2Score" />
+
     </Grid>
 </UserControl>

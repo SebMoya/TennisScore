@@ -1,18 +1,21 @@
-﻿namespace TennisScore.Manager;
+﻿using TennisScore.Models;
+
+namespace TennisScore.Manager;
 
 public class SetManager
 {
-    public int Player1Set { get; set; }
-    public int Player2Set { get; set;}
+    public PlayerModel Player1 { get; set; }
+    public PlayerModel Player2 { get; set; }
+
 
     public void Player1SetScore()
     {
-        Player1Set++;
+        Player1.Set++;
     }
 
     public void Player2SetScore()
     {
-        Player2Set++;
+        Player2.Set++;
     }
 
 }
