@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.ComponentModel;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TennisScore.Manager;
+using TennisScore.ViewModels;
+
 
 namespace TennisScore
 {
@@ -18,31 +21,25 @@ namespace TennisScore
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ScoreManager scoreManager = new ScoreManager();
-        
+        public MainWindowViewModel ViewModel { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
-
+            ViewModel = new MainWindowViewModel();
+            DataContext = ViewModel;
             var uri = new Uri("https://www.freewebheaders.com/wp-content/gallery/tennis/creative-tennis-header.jpg");
             ImgBanner.Source = new BitmapImage(uri);
-            Scorebox.Text = "0 - 0";
         }
 
         private void Player1Btn_OnClick(object sender, RoutedEventArgs e)
         {
-            scoreManager.Player1Scored();
-            if (scoreManager.GetScore() == "Game Player1")
-            {
-                
-            }
-           Scorebox.Text = scoreManager.GetScore();
+            ViewModel.Player1Scored();
         }
 
         private void Player2Btn_OnClick(object sender, RoutedEventArgs e)
         {
-            scoreManager.Player2Scored();
-            Scorebox.Text= scoreManager.GetScore();
+            ViewModel.Player2Scored();
         }
     }
 }

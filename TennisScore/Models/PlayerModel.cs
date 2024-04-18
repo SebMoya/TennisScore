@@ -2,7 +2,7 @@
 
 public class PlayerModel
 {
-    public int Score { get; set; }
+    public int Score { get; set; } = 0;
 
     public int WonGames { get; set; }
 
