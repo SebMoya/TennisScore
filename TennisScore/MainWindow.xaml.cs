@@ -21,6 +21,9 @@ namespace TennisScore
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        //använder MVVM för att binda data till UI
+        //manager hanteras även i viewmodellen
         public MainWindowViewModel ViewModel { get; set; }
 
         public MainWindow()

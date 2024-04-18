@@ -92,7 +92,7 @@ public class ScoreManager
             return "";
         }
     }
-
+    //enum för att hämta hem namnet på siffervärde för framtida expansion
     private string GetScoreName(int score)
     {
         var scoreNames = ScoreNames.GetName(typeof(ScoreNames), score);
